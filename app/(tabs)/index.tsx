@@ -35,8 +35,8 @@ import {
 } from "@/i18n/LanguageProvider";
 
 const GUIDE_IMAGES = [
-  require("@/assets/flags/hd1.jpg"),
-  require("@/assets/flags/hd2.jpg"),
+  require("../../assets/flags/hd1.jpg"),
+  require("../../assets/flags/hd2.jpg"),
 ];
 const { width: SCREEN_W } = Dimensions.get("window");
 const { height: SCREEN_H } = Dimensions.get("window");
