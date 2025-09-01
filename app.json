@@ -1,26 +1,27 @@
 {
   "expo": {
-    "name": "downloadvideo",
+    "name": "VidDown",
     "slug": "downloadvideo",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/logo.png",
     "scheme": "downloadvideo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/splash-android-1440x3200.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#0b1020"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 5,
+      "versionCode": 6,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "resizeMode": "contain",
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#0b1020"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.dokhactu.downloadvideo"
@@ -28,7 +29,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/logo.png"
     },
     "plugins": ["expo-router", "expo-localization"],
     "experiments": {
