@@ -317,14 +317,14 @@ export default function HomeScreen() {
             </View>
 
             {/* Supported */}
-            <View style={styles.supportWrap}>
+            {/* <View style={styles.supportWrap}>
               <Text style={styles.supportTitle}>{t("supported")}</Text>
               <View style={styles.supportRow}>
                 <View style={styles.badge}>
                   <FontAwesome5 name="tiktok" size={14} color={theme.text} />
                 </View>
               </View>
-            </View>
+            </View> */}
 
             {/* RESULT */}
             {meta && links && (

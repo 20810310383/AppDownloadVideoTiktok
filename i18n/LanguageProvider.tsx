@@ -49,7 +49,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     apiMissing: "API missing",
     cfgApi: "Backend API_BASE_URL is not configured.",
     invalidLink: "Invalid link",
-    onlyTiktok: "Currently this API supports TikTok only.",
+    onlyTiktok:
+      "This API currently supports a single platform (not multi-platform yet).",
     fetchErr: "Failed to fetch video info.",
     savedAndroid: "File has been saved to your chosen folder / or shared.",
     savedIOS: "Open Share Sheet to save to Files/Photos.",
@@ -78,8 +79,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     versionPrefix: "v",
 
     howtoTitle: "How to copy the link",
-    step1Title: "Open the video on TikTok",
-    step1Desc: "Go to the TikTok app and open the video you want to download.",
+    step1Title: "Open the video in the source app",
+    step1Desc: "Open the social app and go to the video you want to download.",
     step2Title: "Tap Share → Copy link",
     step2Desc: "Use the Share button and choose Copy link to get the URL.",
     step3Title: "Paste into VidDown",
@@ -101,11 +102,11 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     save: "Lưu",
     tagline: "Trình tải video",
     missingLink: "Thiếu liên kết",
-    pasteFirst: "Hãy dán link TikTok trước đã nhé!",
+    pasteFirst: "Hãy dán link trước đã nhé!",
     apiMissing: "Thiếu API",
     cfgApi: "Chưa cấu hình API_BASE_URL cho backend.",
     invalidLink: "Link không hợp lệ",
-    onlyTiktok: "Hiện API này chỉ hỗ trợ TikTok.",
+    onlyTiktok: "Hiện API này chỉ hỗ trợ một nền tảng (chưa đa nền tảng).",
     fetchErr: "Không lấy được thông tin video.",
     savedAndroid: "Tệp đã lưu vào thư mục bạn chọn / hoặc chia sẻ.",
     savedIOS: "Mở Share Sheet để lưu vào Files/Photos.",
@@ -134,8 +135,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     versionPrefix: "v",
 
     howtoTitle: "Cách sao chép liên kết",
-    step1Title: "Mở video trên TikTok",
-    step1Desc: "Vào ứng dụng TikTok và mở video bạn muốn tải.",
+    step1Title: "Mở video trong ứng dụng nguồn",
+    step1Desc: "Mở ứng dụng mạng xã hội và đến video bạn muốn tải.",
     step2Title: "Nhấn Chia sẻ → Sao chép liên kết",
     step2Desc: "Dùng nút Chia sẻ và chọn Sao chép liên kết để lấy URL.",
     step3Title: "Dán vào VidDown",
@@ -160,7 +161,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     apiMissing: "API manquante",
     cfgApi: "API_BASE_URL du backend n’est pas configuré.",
     invalidLink: "Lien invalide",
-    onlyTiktok: "L’API prend actuellement en charge TikTok uniquement.",
+    onlyTiktok:
+      "Cette API ne prend actuellement en charge qu’une seule plateforme (pas encore multiplateforme).",
     fetchErr: "Impossible d’obtenir les informations.",
     savedAndroid:
       "Le fichier a été enregistré dans le dossier choisi / ou partagé.",
@@ -190,8 +192,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     versionPrefix: "v",
 
     howtoTitle: "Comment copier le lien",
-    step1Title: "Ouvrez la vidéo sur TikTok",
-    step1Desc: "Allez dans l’app TikTok et ouvrez la vidéo à télécharger.",
+    step1Title: "Ouvrez la vidéo dans l’application d’origine",
+    step1Desc: "Ouvrez l’app sociale et accédez à la vidéo à télécharger.",
     step2Title: "Touchez Partager → Copier le lien",
     step2Desc:
       "Utilisez le bouton Partager puis Copier le lien pour obtenir l’URL.",
@@ -216,7 +218,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     apiMissing: "API kosong",
     cfgApi: "API_BASE_URL backend belum dikonfigurasi.",
     invalidLink: "Tautan tidak valid",
-    onlyTiktok: "Saat ini API hanya mendukung TikTok.",
+    onlyTiktok:
+      "API ini saat ini hanya mendukung satu platform (belum multi-platform).",
     fetchErr: "Gagal mengambil informasi.",
     savedAndroid: "File tersimpan ke folder pilihan Anda / atau dibagikan.",
     savedIOS: "Buka Share Sheet untuk menyimpan ke Files/Photos.",
@@ -244,8 +247,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     versionPrefix: "v",
 
     howtoTitle: "Cara menyalin tautan",
-    step1Title: "Buka video di TikTok",
-    step1Desc: "Masuk ke aplikasi TikTok dan buka video yang ingin diunduh.",
+    step1Title: "Buka video di aplikasi sumber",
+    step1Desc: "Buka aplikasi sosial dan menuju video yang ingin diunduh.",
     step2Title: "Ketuk Bagikan → Salin tautan",
     step2Desc:
       "Gunakan tombol Bagikan lalu pilih Salin tautan untuk mendapatkan URL.",
