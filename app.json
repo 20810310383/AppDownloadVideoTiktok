@@ -17,7 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 16,
+      "versionCode": 17,
       "adaptiveIcon": {
         "resizeMode": "contain",
         "foregroundImage": "./assets/images/logo.png",
@@ -32,8 +32,6 @@
       "favicon": "./assets/images/logo.png"
     },
     "plugins": [
-      "expo-router",
-      "expo-localization",
       [
         "react-native-google-mobile-ads",
         {
