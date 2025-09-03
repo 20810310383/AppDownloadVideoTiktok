@@ -34,6 +34,7 @@ import {
   type LangCode,
 } from "@/i18n/LanguageProvider";
 import BannerQC from "@/components/BannerQC/BannerQC";
+import * as InterstitialQC from "@/components/InterstitialQC/InterstitialQC";
 // import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 
 const GUIDE_IMAGES = [
@@ -108,6 +109,7 @@ export default function HomeScreen() {
   const [saving, setSaving] = useState<null | "mp4" | "mp3">(null);
   const [refreshing, setRefreshing] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
+  const [downloadCount, setDownloadCount] = useState(0);
 
   const links = useMemo(() => {
     if (!meta || !url || !API_BASE) return null;
@@ -186,6 +188,24 @@ export default function HomeScreen() {
   const chooseLang = async (code: LangCode) => {
     await setLang(code);
     setLangVisible(false);
+  };
+
+  const showAdThenSave = (href: string, name: string, kind: "mp4" | "mp3") => {
+    setDownloadCount((prev) => {
+      const newCount = prev + 1;
+
+      // Nếu là lần thứ 3 → show QC
+      if (newCount % 3 === 0) {
+        InterstitialQC.show(() => {
+          saveFile(href, name, kind);
+        });
+      } else {
+        // tải thẳng
+        saveFile(href, name, kind);
+      }
+
+      return newCount;
+    });
   };
 
   return (
@@ -366,8 +386,15 @@ export default function HomeScreen() {
                         saving && { opacity: 0.7 },
                       ]}
                       disabled={!!saving}
+                      //   onPress={() =>
+                      //     saveFile(links.mp4, `${links.filenameBase}.mp4`, "mp4")
+                      //   }
                       onPress={() =>
-                        saveFile(links.mp4, `${links.filenameBase}.mp4`, "mp4")
+                        showAdThenSave(
+                          links.mp4,
+                          `${links.filenameBase}.mp4`,
+                          "mp4"
+                        )
                       }
                     >
                       {saving === "mp4" ? (
@@ -405,8 +432,15 @@ export default function HomeScreen() {
                         saving && { opacity: 0.7 },
                       ]}
                       disabled={!!saving}
+                      //   onPress={() =>
+                      //     saveFile(links.mp3, `${links.filenameBase}.mp3`, "mp3")
+                      //   }
                       onPress={() =>
-                        saveFile(links.mp3, `${links.filenameBase}.mp3`, "mp3")
+                        showAdThenSave(
+                          links.mp3,
+                          `${links.filenameBase}.mp3`,
+                          "mp3"
+                        )
                       }
                     >
                       {saving === "mp3" ? (
