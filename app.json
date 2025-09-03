@@ -17,7 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 18,
+      "versionCode": 19,
       "adaptiveIcon": {
         "resizeMode": "contain",
         "foregroundImage": "./assets/images/logo.png",
@@ -35,7 +35,7 @@
       [
         "react-native-google-mobile-ads",
         {
-          "android_app_id": "ca-app-pub-1853543743862045~5863464440"
+          "android_app_id": "ca-app-pub-3940256099942544~3347511713"
         }
       ]
     ],
