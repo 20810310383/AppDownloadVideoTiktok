@@ -2,7 +2,7 @@
   "expo": {
     "name": "VidDown",
     "slug": "downloadvideo",
-    "version": "1.0.8",
+    "version": "1.0.10",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "scheme": "downloadvideo",
@@ -17,17 +17,14 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 8,
+      "versionCode": 10,
       "adaptiveIcon": {
         "resizeMode": "contain",
         "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#0b1020"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.dokhactu.downloadvideo",
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~3347511713"
-      }
+      "package": "com.dokhactu.downloadvideo"
     },
     "web": {
       "bundler": "metro",
@@ -37,7 +34,13 @@
     "plugins": [
       "expo-router",
       "expo-localization",
-      "react-native-google-mobile-ads"
+      [
+        "react-native-google-mobile-ads",
+        {
+          "android_app_id": "ca-app-pub-3940256099942544~3347511713",
+          "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
