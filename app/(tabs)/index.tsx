@@ -33,7 +33,8 @@ import {
   STRINGS,
   type LangCode,
 } from "@/i18n/LanguageProvider";
-import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
+import BannerQC from "@/components/BannerQC/BannerQC";
+// import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 
 const GUIDE_IMAGES = [
   require("../../assets/flags/hd1.jpg"),
@@ -186,11 +187,6 @@ export default function HomeScreen() {
     await setLang(code);
     setLangVisible(false);
   };
-
-  useEffect(() => {
-    // Khai báo test device (tránh bị ban khi test)
-    setTestDeviceIDAsync("EMULATOR");
-  }, []);
 
   return (
     <LinearGradient colors={theme.gradBg} style={{ flex: 1 }}>
@@ -427,16 +423,7 @@ export default function HomeScreen() {
             )}
 
             {/* Banner Ads */}
-            <View style={{ marginTop: 16, alignItems: "center" }}>
-              <AdMobBanner
-                bannerSize="smartBannerPortrait"
-                adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID Google
-                servePersonalizedAds
-                onDidFailToReceiveAdWithError={(err) =>
-                  console.log("Ad error: ", err)
-                }
-              />
-            </View>
+            <BannerQC />
 
             {/* tagline */}
             <View style={styles.footer}>

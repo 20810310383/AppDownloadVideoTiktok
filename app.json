@@ -24,14 +24,21 @@
         "backgroundColor": "#0b1020"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.dokhactu.downloadvideo"
+      "package": "com.dokhactu.downloadvideo",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~3347511713"
+      }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/logo.png"
     },
-    "plugins": ["expo-router", "expo-localization"],
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "react-native-google-mobile-ads"
+    ],
     "experiments": {
       "typedRoutes": true
     },
