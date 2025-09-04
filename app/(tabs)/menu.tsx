@@ -31,8 +31,8 @@ const LINKS = {
   storeAndroid: "https://play.google.com/store/apps/details?id=YOUR_ID",
   storeIOS: "https://apps.apple.com/app/idYOUR_ID",
   shareText:
-    "Mình đang dùng VidDown để tải video TikTok cực nhanh. Thử nhé! http://dantri24h.com/download-video-tiktok",
-  website: "http://dantri24h.com/",
+    "Mình đang dùng VidDown để tải video TikTok cực nhanh. Thử nhé! http://ktquiz.com/download-video-tiktok",
+  website: "http://ktquiz.com/",
 };
 
 const KEY_DIR = "downloadDirUri";

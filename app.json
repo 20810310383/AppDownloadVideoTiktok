@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "VidDown",
+    "name": "TikPro Video Downloader",
     "slug": "downloadvideo",
-    "version": "1.0.20",
+    "version": "1.0.22",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "scheme": "downloadvideo",
@@ -17,7 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 21,
+      "versionCode": 22,
       "adaptiveIcon": {
         "resizeMode": "contain",
         "foregroundImage": "./assets/images/logo.png",
