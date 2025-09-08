@@ -28,11 +28,12 @@ import { useLang } from "@/i18n/LanguageProvider";
 /* ---------- constants / helpers ---------- */
 
 const LINKS = {
-  storeAndroid: "https://play.google.com/store/apps/details?id=YOUR_ID",
+  storeAndroid:
+    "https://play.google.com/store/apps/details?id=com.dokhactu.downloadvideo",
   storeIOS: "https://apps.apple.com/app/idYOUR_ID",
   shareText:
-    "Mình đang dùng VidDown để tải video TikTok cực nhanh. Thử nhé! http://ktquiz.com/download-video-tiktok",
-  website: "http://ktquiz.com/",
+    "Mình đang dùng TikPro Video Downloader để tải video cực nhanh. Thử nhé! https://snaptikpro.app",
+  website: "https://snaptikpro.app",
 };
 
 const KEY_DIR = "downloadDirUri";
