@@ -2,14 +2,14 @@
   "expo": {
     "name": "TikPro Video Downloader",
     "slug": "downloadvideo",
-    "version": "1.0.22",
+    "version": "1.0.26",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/images/logo1.png",
     "scheme": "downloadvideo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/mancho.png",
+      "image": "./assets/images/manchoo.png",
       "resizeMode": "contain",
       "backgroundColor": "#0b1020"
     },
@@ -17,10 +17,10 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 25,
+      "versionCode": 26,
       "adaptiveIcon": {
         "resizeMode": "contain",
-        "foregroundImage": "./assets/images/logo.png",
+        "foregroundImage": "./assets/images/logo1.png",
         "backgroundColor": "#0b1020"
       },
       "edgeToEdgeEnabled": true,
@@ -29,7 +29,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/logo.png"
+      "favicon": "./assets/images/logo1.png"
     },
     "plugins": [
       [

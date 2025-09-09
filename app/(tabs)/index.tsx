@@ -196,9 +196,11 @@ export default function HomeScreen() {
 
       // Nếu là lần thứ 3 → show QC
       if (newCount % 3 === 0) {
-        InterstitialQC.show(() => {
-          saveFile(href, name, kind);
-        });
+        // InterstitialQC.show(() => {
+        //   saveFile(href, name, kind);
+        // });
+
+        saveFile(href, name, kind);
       } else {
         // tải thẳng
         saveFile(href, name, kind);
@@ -240,7 +242,7 @@ export default function HomeScreen() {
                 ) : (
                   <View style={styles.logoDot} />
                 )}
-                <Text style={styles.brandLeft}>Vid</Text>
+                <Text style={styles.brandLeft}>Tikpro</Text>
                 <Text style={styles.brandRight}>Down</Text>
               </View>
               <View style={styles.topIcons}>
@@ -457,7 +459,7 @@ export default function HomeScreen() {
             )}
 
             {/* Banner Ads */}
-            <BannerQC />
+            {/* <BannerQC /> */}
 
             {/* tagline */}
             <View style={styles.footer}>
