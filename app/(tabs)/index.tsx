@@ -38,8 +38,8 @@ import * as InterstitialQC from "@/components/InterstitialQC/InterstitialQC";
 // import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 
 const GUIDE_IMAGES = [
-  require("../../assets/flags/hd1.jpg"),
-  require("../../assets/flags/hd2.jpg"),
+  require("../../assets/flags/snaptikpro-mobile.png"),
+  require("../../assets/flags/snaptikpro-mobile.png"),
 ];
 const { width: SCREEN_W } = Dimensions.get("window");
 const { height: SCREEN_H } = Dimensions.get("window");
@@ -199,7 +199,6 @@ export default function HomeScreen() {
         InterstitialQC.show(() => {
           saveFile(href, name, kind);
         });
-
         // saveFile(href, name, kind);
       } else {
         // tải thẳng
@@ -686,8 +685,19 @@ const makeStyles = (t: ReturnType<typeof useTheme>["theme"]) =>
 
     heroCard: { paddingHorizontal: 16, marginTop: 4 },
     heroGrad: { borderRadius: 28, padding: 18, overflow: "hidden" },
-    heroSmall: { color: "#ffe5e5", fontWeight: "700", letterSpacing: 0.5 },
-    heroTitle: { color: "#fff", fontSize: 28, fontWeight: "900", marginTop: 4 },
+    heroSmall: {
+      color: "#ffe5e5",
+      fontWeight: "700",
+      letterSpacing: 0.5,
+      textAlign: "center",
+    },
+    heroTitle: {
+      color: "#fff",
+      fontSize: 28,
+      fontWeight: "900",
+      marginTop: 4,
+      textAlign: "center",
+    },
     heroDesc: {
       color: "#ffecec",
       opacity: 0.9,
