@@ -19,7 +19,7 @@ export const FLAGS: Record<LangCode, any> = {
 };
 
 // tuỳ chọn: logo thương hiệu theo vùng (nếu bạn có file)
-// nếu chưa có, cứ để comment để app tự fallback chữ "VidDown"
+// nếu chưa có, cứ để comment để app tự fallback chữ "TikproDown"
 export const BRAND_LOGO: Partial<Record<LangCode, any>> = {
   // en: require("@/assets/brand/en.png"),
   // vi: require("@/assets/brand/vi.png"),
@@ -34,7 +34,7 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     yourUltimate: "Your Ultimate",
     downloader: "Downloader",
     heroDesc:
-      "VidDown lets you download videos instantly with speed and ease. No hassle—just seamless, uninterrupted entertainment at your fingertips!",
+      "TikproDown lets you download videos instantly with speed and ease. No hassle—just seamless, uninterrupted entertainment at your fingertips!",
     placeholder: "insert your video link here...",
     download: "Download",
     pleaseWait: "Please wait…",
@@ -83,7 +83,7 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step1Desc: "Open the social app and go to the video you want to download.",
     step2Title: "Tap Share → Copy link",
     step2Desc: "Use the Share button and choose Copy link to get the URL.",
-    step3Title: "Paste into VidDown",
+    step3Title: "Paste into TikproDown",
     step3Desc: "Paste the link into the box above and tap Download.",
   },
   vi: {
@@ -91,7 +91,7 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     yourUltimate: "Công cụ",
     downloader: "Tải xuống",
     heroDesc:
-      "VidDown giúp bạn tải video cực nhanh và đơn giản. Không phiền phức—trải nghiệm giải trí mượt mà trong tầm tay!",
+      "TikproDown giúp bạn tải video cực nhanh và đơn giản. Không phiền phức—trải nghiệm giải trí mượt mà trong tầm tay!",
     placeholder: "dán liên kết video vào đây...",
     download: "Tải xuống",
     pleaseWait: "Đang xử lý…",
@@ -139,14 +139,14 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step1Desc: "Mở ứng dụng mạng xã hội và đến video bạn muốn tải.",
     step2Title: "Nhấn Chia sẻ → Sao chép liên kết",
     step2Desc: "Dùng nút Chia sẻ và chọn Sao chép liên kết để lấy URL.",
-    step3Title: "Dán vào VidDown",
+    step3Title: "Dán vào TikproDown",
     step3Desc: "Dán link vào ô nhập phía trên rồi nhấn Tải xuống.",
   },
   fr: {
     yourUltimate: "Votre",
     downloader: "Téléchargeur",
     heroDesc:
-      "VidDown vous permet de télécharger des vidéos instantanément, rapidement et facilement.",
+      "TikproDown vous permet de télécharger des vidéos instantanément, rapidement et facilement.",
     placeholder: "collez votre lien vidéo ici...",
     download: "Télécharger",
     pleaseWait: "Veuillez patienter…",
@@ -197,13 +197,14 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step2Title: "Touchez Partager → Copier le lien",
     step2Desc:
       "Utilisez le bouton Partager puis Copier le lien pour obtenir l’URL.",
-    step3Title: "Collez dans VidDown",
+    step3Title: "Collez dans TikproDown",
     step3Desc: "Collez le lien ci-dessus et touchez Télécharger.",
   },
   id: {
     yourUltimate: "Alat",
     downloader: "Unduh",
-    heroDesc: "VidDown memudahkan Anda mengunduh video dengan cepat dan mudah.",
+    heroDesc:
+      "TikproDown memudahkan Anda mengunduh video dengan cepat dan mudah.",
     placeholder: "tempel tautan video di sini...",
     download: "Unduh",
     pleaseWait: "Tunggu sebentar…",
@@ -252,7 +253,7 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step2Title: "Ketuk Bagikan → Salin tautan",
     step2Desc:
       "Gunakan tombol Bagikan lalu pilih Salin tautan untuk mendapatkan URL.",
-    step3Title: "Tempel ke VidDown",
+    step3Title: "Tempel ke TikproDown",
     step3Desc: "Tempel tautan ke kotak di atas lalu ketuk Unduh.",
   },
 };
