@@ -2,7 +2,7 @@
   "expo": {
     "name": "TikPro Video Downloader",
     "slug": "downloadvideo",
-    "version": "1.0.28",
+    "version": "1.0.29",
     "orientation": "portrait",
     "icon": "./assets/images/logo1.png",
     "scheme": "downloadvideo",
@@ -17,7 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 28,
+      "versionCode": 29,
       "adaptiveIcon": {
         "resizeMode": "contain",
         "foregroundImage": "./assets/images/logo1.png",
