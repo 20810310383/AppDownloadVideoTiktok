@@ -2,7 +2,7 @@
   "expo": {
     "name": "TikPro Video Downloader",
     "slug": "downloadvideo",
-    "version": "1.0.29",
+    "version": "1.0.30",
     "orientation": "portrait",
     "icon": "./assets/images/logo1.png",
     "scheme": "downloadvideo",
@@ -17,7 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 29,
+      "versionCode": 30,
       "adaptiveIcon": {
         "resizeMode": "contain",
         "foregroundImage": "./assets/images/logo1.png",
@@ -43,11 +43,10 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {},
       "eas": {
-        "projectId": "66a65571-a19f-4f44-9acb-3c9237d132f8"
+        "projectId": "86a28722-da60-47ed-9fa9-285e01a6a58a"
       }
     },
-    "owner": "dokhactu"
+    "owner": "dokhactu2"
   }
 }
