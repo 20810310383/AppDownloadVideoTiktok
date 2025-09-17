@@ -41,6 +41,8 @@ const GUIDE_IMAGES = [
   require("../../assets/flags/snaptikpro-mobile.png"),
   require("../../assets/flags/snaptikpro-mobile.png"),
 ];
+const SNAPTIK_IMAGE = require("../../assets/flags/snaptikpro-mobile.png");
+
 const { width: SCREEN_W } = Dimensions.get("window");
 const { height: SCREEN_H } = Dimensions.get("window");
 
@@ -471,7 +473,7 @@ export default function HomeScreen() {
 
               {/*  ảnh hướng dẫn */}
               <Image
-                source={require("../../assets/flags/snaptikpro-mobile.png")}
+                source={SNAPTIK_IMAGE}
                 style={styles.slideImage}
                 resizeMode="contain" // hoặc "contain"
               />
