@@ -18,8 +18,8 @@ module.exports = function (api) {
             '@utils': './utils',
         },
       }],
-      require.resolve('expo-router/babel'),
-      'react-native-reanimated/plugin',
+      'expo-router/babel',            // ✅ chỉ cần string, không require.resolve
+      'react-native-worklets/plugin', // ✅ thay cho reanimated/plugin
     ],
   };
 };

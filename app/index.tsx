@@ -9,12 +9,14 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 import LottieView from "lottie-react-native";
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function WelcomeScreen() {
   const [displayedText, setDisplayedText] = useState("");
   const animationRef = useRef<LottieView>(null);
+  const { lang, setLang, t } = useLang();
 
-  const fullText = "Tikpro Video Downloader\nNo watermark";
+  const fullText = t("welcomeText");
 
   useEffect(() => {
     let i = 0;
@@ -24,7 +26,7 @@ export default function WelcomeScreen() {
       if (i === fullText.length) clearInterval(interval);
     }, 50);
     return () => clearInterval(interval);
-  }, []);
+  }, [fullText]);
 
   return (
     <View style={styles.container}>
@@ -43,7 +45,7 @@ export default function WelcomeScreen() {
           onPress={() => router.replace("/(tabs)")}
         >
           {/* nút bắt đầu */}
-          <Text style={styles.btnText}>Bắt đầu</Text>
+          <Text style={styles.btnText}>{t("batdau")}</Text>
         </TouchableOpacity>
       </View>
     </View>

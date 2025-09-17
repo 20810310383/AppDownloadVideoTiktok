@@ -12,25 +12,26 @@ buildscript {
   }
 }
 
-def reactNativeAndroidDir = new File(
-  providers.exec {
-    workingDir(rootDir)
-    commandLine("node", "--print", "require.resolve('react-native/package.json')")
-  }.standardOutput.asText.get().trim(),
-  "../android"
-)
-
 allprojects {
   repositories {
-    maven {
-      // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-      url(reactNativeAndroidDir)
-    }
-
     google()
     mavenCentral()
     maven { url 'https://www.jitpack.io' }
   }
+}
+
+// ✅ Đảm bảo tất cả module Kotlin dùng JVM 17
+subprojects {
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin("org.jetbrains.kotlin.android") ||
+            project.plugins.hasPlugin("org.jetbrains.kotlin.jvm")) {
+            project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+                kotlinOptions {
+                    jvmTarget = "17"
+                }
+            }
+        }
+    }
 }
 
 apply plugin: "expo-root-project"

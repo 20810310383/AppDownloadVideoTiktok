@@ -31,6 +31,8 @@ export const BRAND_LOGO: Partial<Record<LangCode, any>> = {
 export const STRINGS: Record<LangCode, Record<string, string>> = {
   en: {
     // Home
+    batdau: "Get Started",
+    welcomeText: "Tikpro Video Downloader\nNo watermark",
     yourUltimate: "Your Ultimate",
     downloader: "Downloader",
     heroDesc:
@@ -88,6 +90,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
   },
   vi: {
     // Home
+    batdau: "Bắt đầu",
+    welcomeText: "Tikpro Tải Video\nKhông logo",
     yourUltimate: "Công cụ",
     downloader: "Tải xuống",
     heroDesc:
@@ -143,6 +147,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step3Desc: "Dán link vào ô nhập phía trên rồi nhấn Tải xuống.",
   },
   fr: {
+    batdau: "Commencer",
+    welcomeText: "Téléchargeur de vidéos Tikpro Sans filigrane",
     yourUltimate: "Votre",
     downloader: "Téléchargeur",
     heroDesc:
@@ -201,6 +207,8 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step3Desc: "Collez le lien ci-dessus et touchez Télécharger.",
   },
   id: {
+    batdau: "Mulai",
+    welcomeText: "Pengunduh Video Tikpro\nTanpa watermark",
     yourUltimate: "Alat",
     downloader: "Unduh",
     heroDesc:

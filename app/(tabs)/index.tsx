@@ -196,10 +196,10 @@ export default function HomeScreen() {
 
       // Nếu là lần thứ 3 → show QC
       if (newCount % 3 === 0) {
-        InterstitialQC.show(() => {
-          saveFile(href, name, kind);
-        });
-        // saveFile(href, name, kind);
+        // InterstitialQC.show(() => {
+        //   saveFile(href, name, kind);
+        // });
+        saveFile(href, name, kind);
       } else {
         // tải thẳng
         saveFile(href, name, kind);
@@ -458,7 +458,7 @@ export default function HomeScreen() {
             )}
 
             {/* Banner Ads */}
-            <BannerQC />
+            {/* <BannerQC /> */}
 
             {/* tagline */}
             <View style={styles.footer}>
@@ -469,40 +469,12 @@ export default function HomeScreen() {
             <View style={styles.howtoWrap}>
               <Text style={styles.howtoTitle}>{t("howtoTitle")}</Text>
 
-              {/* Slider ảnh */}
-              <ScrollView
-                horizontal
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
-                onScroll={(e) => {
-                  const x = e.nativeEvent.contentOffset.x;
-                  const idx = Math.round(x / (SCREEN_W - 32)); // 16 padding hai bên
-                  if (idx !== slideIndex) setSlideIndex(idx);
-                }}
-                scrollEventThrottle={16}
-                style={styles.slider}
-                contentContainerStyle={{ paddingHorizontal: 16 }}
-              >
-                {GUIDE_IMAGES.map((img, i) => (
-                  <TouchableOpacity
-                    key={i}
-                    activeOpacity={0.85}
-                    onPress={() => setPreview({ visible: true, src: img })}
-                  >
-                    <Image source={img} style={styles.slideImage} />
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-
-              {/* Dots */}
-              <View style={styles.dotsWrap}>
-                {GUIDE_IMAGES.map((_, i) => (
-                  <View
-                    key={i}
-                    style={[styles.dot, i === slideIndex && styles.dotActive]}
-                  />
-                ))}
-              </View>
+              {/*  ảnh hướng dẫn */}
+              <Image
+                source={require("../../assets/flags/snaptikpro-mobile.png")}
+                style={styles.slideImage}
+                resizeMode="contain" // hoặc "contain"
+              />
 
               {/* Steps */}
               <View style={{ marginTop: 10 }}>
@@ -842,11 +814,12 @@ const makeStyles = (t: ReturnType<typeof useTheme>["theme"]) =>
     },
     slideImage: {
       width: SCREEN_W - 32, // padding 16 mỗi bên
-      height: (SCREEN_W - 32) * 0.56, // tỉ lệ 16:9
+      height: 550, // hoặc SCREEN_H * 0.25 cho auto theo màn
       borderRadius: 12,
       backgroundColor: "#1f2937",
       marginRight: 10,
     },
+
     dotsWrap: {
       flexDirection: "row",
       justifyContent: "center",
