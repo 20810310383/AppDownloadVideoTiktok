@@ -37,11 +37,7 @@ import BannerQC from "@/components/BannerQC/BannerQC";
 import * as InterstitialQC from "@/components/InterstitialQC/InterstitialQC";
 // import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 
-const GUIDE_IMAGES = [
-  require("../../assets/flags/anhhd.png"),
-  require("../../assets/flags/anhhd.png"),
-];
-const SNAPTIK_IMAGE = require("../../assets/flags/anhhd.png");
+const SNAPTIK_IMAGE = require("../../assets/images/anhhd.png");
 
 const { width: SCREEN_W } = Dimensions.get("window");
 const { height: SCREEN_H } = Dimensions.get("window");
