@@ -469,7 +469,9 @@ export default function HomeScreen() {
 
               {/*  ảnh hướng dẫn */}
               <Image
-                source={SNAPTIK_IMAGE}
+                source={{
+                  uri: "https://res.cloudinary.com/dume8oer7/image/upload/v1758169949/folderupload/nsw22k3kzjtv4zbqf4mw.jpg",
+                }}
                 style={styles.slideImage}
                 resizeMode="contain" // hoặc "contain"
               />
