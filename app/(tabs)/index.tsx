@@ -38,10 +38,10 @@ import * as InterstitialQC from "@/components/InterstitialQC/InterstitialQC";
 // import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 
 const GUIDE_IMAGES = [
-  require("../../assets/flags/snaptikpro-mobile.png"),
-  require("../../assets/flags/snaptikpro-mobile.png"),
+  require("../../assets/flags/snaptikpro_mobile.png"),
+  require("../../assets/flags/snaptikpro_mobile.png"),
 ];
-const SNAPTIK_IMAGE = require("../../assets/flags/snaptikpro-mobile.png");
+const SNAPTIK_IMAGE = require("../../assets/flags/snaptikpro_mobile.png");
 
 const { width: SCREEN_W } = Dimensions.get("window");
 const { height: SCREEN_H } = Dimensions.get("window");
