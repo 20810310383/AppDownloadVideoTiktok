@@ -15,7 +15,7 @@ export default function BannerQC() {
   return (
     <View style={{ alignItems: "center", marginTop: 16 }}>
       <BannerAd
-        unitId={TestIds.BANNER} // test ID
+        unitId={"ca-app-pub-6966758489116539/9398657108"}
         size={BannerAdSize.BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,

@@ -7,7 +7,7 @@ import {
 
 const adUnitId = __DEV__
   ? TestIds.INTERSTITIAL // ID test
-  : "ca-app-pub-1853543743862045/4007225781"; // thay bằng id thật của bạn
+  : "ca-app-pub-6966758489116539/5204261220"; // thay bằng id thật của bạn
 
 let interstitial: InterstitialAd | null = null;
 
