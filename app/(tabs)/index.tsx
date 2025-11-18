@@ -162,7 +162,7 @@ export default function HomeScreen() {
     if (can) Linking.openURL(href);
   };
 
-  const saveFile = async (
+  const saveFile1 = async (
     href?: string,
     name?: string,
     kind?: "mp4" | "mp3"
@@ -176,6 +176,29 @@ export default function HomeScreen() {
       else Alert.alert(t("ok"), t("savedIOS"));
     } catch (e: any) {
       Alert.alert("Error", e?.message || "Cannot save file.");
+    } finally {
+      setSaving(null);
+    }
+  };
+  const saveFile = async (
+    href?: string,
+    name?: string,
+    kind?: "mp4" | "mp3"
+  ) => {
+    if (!href || !name) return;
+
+    try {
+      setSaving(kind ?? null);
+
+      await saveRemoteFile(href, name);
+
+      if (Platform.OS === "android") {
+        Alert.alert("Thành công", "Đã lưu file vào thư mục bạn chọn.");
+      } else {
+        Alert.alert("Thành công", "Đã lưu file thành công.");
+      }
+    } catch (e: any) {
+      Alert.alert("Lỗi", e.message || "Không thể lưu file.");
     } finally {
       setSaving(null);
     }
