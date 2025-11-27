@@ -188,9 +188,10 @@ export default function HomeScreen() {
     if (!href || !name) return;
 
     try {
+      const finalName = `snaptikpro.app_${name}`;
       setSaving(kind ?? null);
 
-      await saveRemoteFile(href, name);
+      await saveRemoteFile(href, finalName);
 
       if (Platform.OS === "android") {
         Alert.alert("Thành công", "Đã lưu file vào thư mục bạn chọn.");
