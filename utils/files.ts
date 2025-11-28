@@ -1,68 +1,16 @@
-// // src/utils/files.ts
-// import * as FileSystem from "expo-file-system/legacy";
-// import * as Sharing from "expo-sharing";
-// import { Platform } from "react-native";
-
-// export async function saveRemoteFile(
-//   remoteUrl: string,
-//   fileName: string
-// ): Promise<string> {
-//   const safe = fileName.replace(/[^\w.\-]+/g, "_");
-//   const tmpPath =
-//     (FileSystem.cacheDirectory || FileSystem.documentDirectory)! + safe;
-
-//   // Tải về tạm
-//   const downloader = FileSystem.createDownloadResumable(remoteUrl, tmpPath);
-//   const result = await downloader.downloadAsync(); // result: FileSystemDownloadResult | undefined
-//   if (!result) throw new Error("Download failed or cancelled.");
-//   const uri = result.uri; // <-- giờ mới có type
-
-//   // Android: cố gắng lưu vào thư mục người dùng chọn
-//   if (Platform.OS === "android") {
-//     try {
-//       const perm =
-//         await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
-//       if (perm.granted) {
-//         const base64 = await FileSystem.readAsStringAsync(uri, {
-//           encoding: FileSystem.EncodingType.Base64,
-//         });
-//         const mime = safe.toLowerCase().endsWith(".mp3")
-//           ? "audio/mpeg"
-//           : "video/mp4";
-//         const dest = await FileSystem.StorageAccessFramework.createFileAsync(
-//           perm.directoryUri,
-//           safe,
-//           mime
-//         );
-//         await FileSystem.writeAsStringAsync(dest, base64, {
-//           encoding: FileSystem.EncodingType.Base64,
-//         });
-//         return dest; // trả về URI trong SAF
-//       }
-//     } catch {
-//       // bỏ qua, fallback Sharing
-//     }
-//   }
-
-//   // iOS & fallback: mở Share Sheet để người dùng lưu
-//   if (await Sharing.isAvailableAsync()) {
-//     await Sharing.shareAsync(uri);
-//   }
-
-//   // trả về đường dẫn tạm (nếu cần dùng tiếp)
-//   return uri;
-// }
-
 import * as FileSystem from "expo-file-system/legacy";
 import axios from "axios";
 import { Platform } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+const KEY_SAVED_DIR = "user_saved_directory_uri";
+
+// Convert buffer → base64
 function arrayBufferToBase64(buffer: ArrayBuffer) {
   let binary = "";
   const bytes = new Uint8Array(buffer);
-  const len = bytes.byteLength;
 
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < bytes.byteLength; i++) {
     binary += String.fromCharCode(bytes[i]);
   }
 
@@ -74,35 +22,50 @@ export async function saveRemoteFile(remoteUrl: string, fileName: string) {
   const tmpPath =
     (FileSystem.cacheDirectory || FileSystem.documentDirectory) + safeName;
 
-  // Không follow redirect
+  // Tải file dạng arraybuffer
   const response = await axios.get(remoteUrl, {
     responseType: "arraybuffer",
     maxRedirects: 0,
     validateStatus: () => true,
   });
 
-  // Nếu backend trả redirect → lỗi
   if (response.status >= 300 && response.status < 400) {
-    throw new Error("Backend redirect — blocked để tránh mở browser.");
+    throw new Error("Redirect bị chặn để tránh mở browser.");
   }
 
   const base64 = arrayBufferToBase64(response.data);
 
-  // Lưu vào cache tạm
+  // Ghi file tạm
   await FileSystem.writeAsStringAsync(tmpPath, base64, {
     encoding: FileSystem.EncodingType.Base64,
   });
 
-  // Android: Lưu thẳng vào thư mục user chọn
+  // ---------- ANDROID: tự lưu vào thư mục đã chọn ----------
   if (Platform.OS === "android") {
-    const perm =
-      await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+    try {
+      // 1. Lấy thư mục đã lưu từ lần trước
+      const savedDir = await AsyncStorage.getItem(KEY_SAVED_DIR);
 
-    if (perm.granted) {
+      let directoryUri = savedDir;
+
+      // 2. Nếu chưa từng chọn → hỏi user chọn
+      if (!directoryUri) {
+        const perm =
+          await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+
+        if (!perm.granted) throw new Error("Bạn phải chọn thư mục để lưu.");
+
+        directoryUri = perm.directoryUri;
+
+        // Lưu lại để lần sau khỏi hỏi
+        await AsyncStorage.setItem(KEY_SAVED_DIR, directoryUri);
+      }
+
+      // 3. Tạo file và ghi dữ liệu
       const mime = safeName.endsWith(".mp3") ? "audio/mpeg" : "video/mp4";
 
       const dest = await FileSystem.StorageAccessFramework.createFileAsync(
-        perm.directoryUri,
+        directoryUri!,
         safeName,
         mime
       );
@@ -112,9 +75,17 @@ export async function saveRemoteFile(remoteUrl: string, fileName: string) {
       });
 
       return dest;
+    } catch (err) {
+      // Nếu lỗi do quyền thư mục → xóa và hỏi lại lần sau
+      await AsyncStorage.removeItem(KEY_SAVED_DIR);
+      throw err;
     }
   }
 
-  // iOS: trả về file tạm
+  // ---------- iOS: trả về file tạm ----------
   return tmpPath;
+}
+
+export async function resetSavedDirectory() {
+  await AsyncStorage.removeItem("user_saved_directory_uri");
 }

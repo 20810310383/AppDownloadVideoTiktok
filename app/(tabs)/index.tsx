@@ -22,7 +22,7 @@ import Constants from "expo-constants";
 import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MediaInfo } from "@/types";
-import { saveRemoteFile } from "@/utils/files";
+import { resetSavedDirectory, saveRemoteFile } from "@/utils/files";
 import { useTheme } from "@/theme/ThemeProvider";
 import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -35,6 +35,7 @@ import {
 } from "@/i18n/LanguageProvider";
 import BannerQC from "@/components/BannerQC/BannerQC";
 import * as InterstitialQC from "@/components/InterstitialQC/InterstitialQC";
+import Toast from "react-native-toast-message";
 // import { AdMobBanner, setTestDeviceIDAsync } from "expo-ads-admob";
 
 const { width: SCREEN_W } = Dimensions.get("window");
@@ -194,9 +195,17 @@ export default function HomeScreen() {
       await saveRemoteFile(href, finalName);
 
       if (Platform.OS === "android") {
-        Alert.alert("Thành công", "Đã lưu file vào thư mục bạn chọn.");
+        Toast.show({
+          type: "success",
+          text1: t("saveSuccessTitle"),
+          text2: t("saveSuccessMsg"),
+        });
       } else {
-        Alert.alert("Thành công", "Đã lưu file thành công.");
+        Toast.show({
+          type: "success",
+          text1: t("saveSuccessTitle"),
+          text2: t("saveSuccessMsg"),
+        });
       }
     } catch (e: any) {
       Alert.alert("Lỗi", e.message || "Không thể lưu file.");
@@ -378,6 +387,7 @@ export default function HomeScreen() {
                     style={styles.thumb}
                   />
                 ) : null}
+
                 <Text style={styles.resTitle} numberOfLines={2}>
                   {meta.title || "Video"}
                 </Text>
@@ -393,6 +403,7 @@ export default function HomeScreen() {
                     <MaterialIcons name="movie" size={20} color={theme.text} />
                     <Text style={styles.fileLabel}>{t("mp4")}</Text>
                   </View>
+
                   <View style={styles.row}>
                     <TouchableOpacity
                       style={styles.smallBtn}
@@ -400,6 +411,7 @@ export default function HomeScreen() {
                     >
                       <Text style={styles.smallBtnText}>{t("open")}</Text>
                     </TouchableOpacity>
+
                     <TouchableOpacity
                       style={[
                         styles.smallBtn,
@@ -407,9 +419,6 @@ export default function HomeScreen() {
                         saving && { opacity: 0.7 },
                       ]}
                       disabled={!!saving}
-                      //   onPress={() =>
-                      //     saveFile(links.mp4, `${links.filenameBase}.mp4`, "mp4")
-                      //   }
                       onPress={() =>
                         showAdThenSave(
                           links.mp4,
@@ -439,6 +448,7 @@ export default function HomeScreen() {
                     />
                     <Text style={styles.fileLabel}>{t("mp3")}</Text>
                   </View>
+
                   <View style={styles.row}>
                     <TouchableOpacity
                       style={styles.smallBtn}
@@ -446,6 +456,7 @@ export default function HomeScreen() {
                     >
                       <Text style={styles.smallBtnText}>{t("open")}</Text>
                     </TouchableOpacity>
+
                     <TouchableOpacity
                       style={[
                         styles.smallBtn,
@@ -453,9 +464,6 @@ export default function HomeScreen() {
                         saving && { opacity: 0.7 },
                       ]}
                       disabled={!!saving}
-                      //   onPress={() =>
-                      //     saveFile(links.mp3, `${links.filenameBase}.mp3`, "mp3")
-                      //   }
                       onPress={() =>
                         showAdThenSave(
                           links.mp3,
@@ -474,6 +482,27 @@ export default function HomeScreen() {
                     </TouchableOpacity>
                   </View>
                 </View>
+
+                {/* ⭐ ĐỔI THƯ MỤC LƯU — THÊM VÀO ĐÂY ⭐ */}
+                <TouchableOpacity
+                  style={styles.changeDirBtn}
+                  onPress={async () => {
+                    await resetSavedDirectory();
+                    // Alert.alert(t("resetDirTitle"), t("resetDirMsg"));
+                    Toast.show({
+                      type: "info",
+                      text1: t("resetDirTitle"),
+                      text2: t("resetDirMsg"),
+                    });
+                  }}
+                >
+                  <Ionicons
+                    name="folder-open-outline"
+                    size={18}
+                    color={theme.primary}
+                  />
+                  <Text style={styles.changeDirText}>{t("changeDir")}</Text>
+                </TouchableOpacity>
               </View>
             )}
 
@@ -935,5 +964,22 @@ const makeStyles = (t: ReturnType<typeof useTheme>["theme"]) =>
       padding: 8,
       borderRadius: 16,
       backgroundColor: "rgba(0,0,0,0.35)",
+    },
+    changeDirBtn: {
+      marginTop: 14,
+      paddingVertical: 10,
+      paddingHorizontal: 14,
+      flexDirection: "row",
+      alignItems: "center",
+      borderRadius: 10,
+      backgroundColor: t.card,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: t.border,
+    },
+    changeDirText: {
+      marginLeft: 8,
+      fontSize: 14,
+      fontWeight: "600",
+      color: t.primary,
     },
   });

@@ -63,12 +63,15 @@ import { Stack } from "expo-router";
 import { ThemeProvider, useTheme } from "@/theme/ThemeProvider";
 import { StatusBar } from "expo-status-bar";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
+import Toast from "react-native-toast-message";
+import { toastConfig } from "@/components/ToastConfig/ToastConfig";
 
 export default function Root() {
   return (
     <ThemeProvider>
       <LanguageProvider>
         <RootNav />
+        <Toast config={toastConfig} position="bottom" bottomOffset={80} />
       </LanguageProvider>
     </ThemeProvider>
   );

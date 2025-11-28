@@ -30,6 +30,14 @@ export const BRAND_LOGO: Partial<Record<LangCode, any>> = {
 /** --- STRINGS chung cho 2 màn --- */
 export const STRINGS: Record<LangCode, Record<string, string>> = {
   en: {
+    saveSuccessTitle: "Success",
+    saveSuccessMsg: "The file has been saved to your selected folder.",
+    close: "Close",
+
+    resetDirTitle: "Reset completed",
+    resetDirMsg: "Save any file to choose a new download folder.",
+    changeDir: "Change download folder",
+
     // Home
     batdau: "Get Started",
     welcomeText: "Tikpro Video Downloader\nNo watermark",
@@ -89,6 +97,14 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step3Desc: "Paste the link into the box above and tap Download.",
   },
   vi: {
+    saveSuccessTitle: "Thành công",
+    saveSuccessMsg: "Đã lưu file vào thư mục bạn chọn.",
+    close: "Đóng",
+
+    resetDirTitle: "Đã đặt lại",
+    resetDirMsg: "Hãy lưu 1 file bất kỳ để chọn thư mục mới.",
+    changeDir: "Đổi thư mục lưu",
+
     // Home
     batdau: "Bắt đầu",
     welcomeText: "Tikpro Tải Video\nKhông logo",
@@ -147,6 +163,14 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step3Desc: "Dán link vào ô nhập phía trên rồi nhấn Tải xuống.",
   },
   fr: {
+    saveSuccessTitle: "Succès",
+    saveSuccessMsg: "Le fichier a été enregistré dans le dossier choisi.",
+    close: "Fermer",
+
+    resetDirTitle: "Réinitialisé",
+    resetDirMsg: "Enregistrez un fichier pour choisir un nouveau dossier.",
+    changeDir: "Changer le dossier de téléchargement",
+
     batdau: "Commencer",
     welcomeText: "Téléchargeur de vidéos Tikpro Sans filigrane",
     yourUltimate: "Votre",
@@ -207,6 +231,14 @@ export const STRINGS: Record<LangCode, Record<string, string>> = {
     step3Desc: "Collez le lien ci-dessus et touchez Télécharger.",
   },
   id: {
+    saveSuccessTitle: "Berhasil",
+    saveSuccessMsg: "File telah disimpan ke folder yang Anda pilih.",
+    close: "Tutup",
+
+    resetDirTitle: "Direset",
+    resetDirMsg: "Simpan file apa saja untuk memilih folder baru.",
+    changeDir: "Ubah folder unduhan",
+
     batdau: "Mulai",
     welcomeText: "Pengunduh Video Tikpro\nTanpa watermark",
     yourUltimate: "Alat",
